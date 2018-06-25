@@ -7,22 +7,14 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
-import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class JanelaBancoController implements Initializable {
@@ -62,20 +54,24 @@ public class JanelaBancoController implements Initializable {
         addBtn.addEventHandler(ActionEvent.ACTION, event -> {
             new Thread(() -> {
                 new BancoController().adicionar(nomeTextField.getText());
+                popularTableView();
+                limpaDados();
             }).start();
         });
         deleteBtn.addEventHandler(ActionEvent.ACTION, event -> {
             new Thread(() -> {
                 new BancoController().remover(nomeTextField.getText(), codTextField.getText());
+                popularTableView();
+                limpaDados();
             }).start();
         });
 
         agenciaBtn.addEventHandler(ActionEvent.ACTION, event -> {
-            chamarStage("view/fxml/JanelaAgencia.fxml", event);
+            new StageController().chamarStage("view/fxml/JanelaAgencia.fxml", event);
         });
 
         contasBtn.addEventHandler(ActionEvent.ACTION, event -> {
-            chamarStage("view/fxml/JanelaContaBancaria.fxml", event);
+            new StageController().chamarStage("view/fxml/JanelaContaBancaria.fxml", event);
         });
 
         bancoTableView.setOnMouseClicked(event -> {
@@ -91,18 +87,9 @@ public class JanelaBancoController implements Initializable {
         bancoTableView.setItems(data);
     }
 
-
-    private void chamarStage(String url, Event event) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getClassLoader().getResource(url)));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.centerOnScreen();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void limpaDados() {
+        codTextField.setText("");
+        nomeTextField.setText("");
     }
-
 
 }
