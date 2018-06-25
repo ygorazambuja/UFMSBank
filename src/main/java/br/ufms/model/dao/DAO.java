@@ -39,7 +39,9 @@ public abstract class DAO<B extends EntidadeBase> {
        }
        return bean;
     }
-    public void delete(B bean) {
+
+    public void delete(Class<B> clazz, B bean) {
+
         EntityManager em = getEM();
         try {
             em.getTransaction().begin();
@@ -62,5 +64,21 @@ public abstract class DAO<B extends EntidadeBase> {
         }
         return b;
     }
+
+    public void deleteComReferencia(Class<B> clazz, B bean) {
+
+        EntityManager em = getEM();
+        try {
+            em.getTransaction().begin();
+            em.remove(em.getReference(clazz, bean.getId()));
+            em.getTransaction().commit();
+
+        } catch (PersistenceException pe) {
+            System.err.println(pe.getMessage());
+        } finally {
+            em.close();
+        }
+    }
+
 
 }

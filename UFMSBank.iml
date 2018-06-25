@@ -5,7 +5,11 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="Entities" />
+          <factory-entry name="ufmsbank" value="80bc3b80-2c63-456d-924e-dd605fd1067f" />
+          <factory-entry name="ufmsbankPU" value="fb95efe8-d2dc-4def-b5e8-aa5c9544b705" />
+        </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
     </facet>

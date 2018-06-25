@@ -25,11 +25,6 @@ public class ContaBancaria implements EntidadeBase {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
-        this.numero = numero;
-    }
-
-
     public Double getSaldo() {
         return saldo;
     }

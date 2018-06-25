@@ -11,9 +11,9 @@ public class Agencia implements EntidadeBase {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "Banco", nullable = false)
     private Banco banco;
-
 
     public Integer getId() {
         return id;
@@ -23,6 +23,7 @@ public class Agencia implements EntidadeBase {
         this.id = id;
     }
 
+
     public Banco getBanco() {
         return banco;
     }
@@ -30,4 +31,6 @@ public class Agencia implements EntidadeBase {
     public void setBanco(Banco banco) {
         this.banco = banco;
     }
+
+
 }
