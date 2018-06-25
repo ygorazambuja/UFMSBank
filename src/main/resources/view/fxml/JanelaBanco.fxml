@@ -8,7 +8,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="483.0" style="-fx-background-color: #99B898;" xmlns="http://javafx.com/javafx/8.0.172"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufms.controller.JanelaBancoController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufms.controller.views.JanelaBancoController">
     <children>
         <JFXTextField fx:id="codTextField" alignment="CENTER" focusColor="#2a363b" layoutX="47.0" layoutY="47.0"
                       promptText="Código" unFocusColor="#99b898"/>

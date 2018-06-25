@@ -17,7 +17,8 @@ public class TesteJanelaLogin extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/view/fxml/TelaLogin.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Nulo");
+        primaryStage.setTitle("UFMSBank");
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 }

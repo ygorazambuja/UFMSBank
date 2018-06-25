@@ -1,4 +1,4 @@
-package br.ufms.controller;
+package br.ufms.controller.model;
 
 import br.ufms.model.bean.Banco;
 import br.ufms.model.dao.BancoDAO;

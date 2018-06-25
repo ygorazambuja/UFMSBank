@@ -1,4 +1,4 @@
-package br.ufms.controller;
+package br.ufms.controller.model;
 
 import br.ufms.model.bean.ContaCorrente;
 import br.ufms.model.bean.ContaPoupanca;

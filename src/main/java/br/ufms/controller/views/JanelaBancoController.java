@@ -1,5 +1,7 @@
-package br.ufms.controller;
+package br.ufms.controller.views;
 
+import br.ufms.controller.model.BancoController;
+import br.ufms.controller.model.StageController;
 import br.ufms.model.bean.Banco;
 import br.ufms.model.dao.BancoDAO;
 import com.jfoenix.controls.JFXButton;

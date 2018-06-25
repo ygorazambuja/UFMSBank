@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" style="-fx-background-color: #fff4e6;" xmlns="http://javafx.com/javafx/8.0.172"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufms.controller.JanelaCriarContaController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufms.controller.views.JanelaCriarContaController">
     <children>
         <JFXTextField fx:id="correntistaTextField" focusColor="#854442" labelFloat="true" layoutX="40.0" layoutY="81.0"
                       promptText="Nome do Correntista:" unFocusColor="#854442"/>
@@ -26,7 +26,7 @@
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="361.0" layoutY="14.0" pickOnBounds="true"
                    preserveRatio="true">
             <image>
-                <Image url="@images/logo.png"/>
+                <Image url="@../../images/logo.png"/>
             </image>
         </ImageView>
         <Label contentDisplay="TOP" layoutX="243.0" layoutY="127.0" style="-fx-font-size: 35px;" text="UFMS Bank"
@@ -37,19 +37,19 @@
         <ImageView fx:id="errorHum" fitHeight="18.0" fitWidth="13.0" layoutX="182.0" layoutY="89.0" pickOnBounds="true"
                    preserveRatio="true" visible="false">
             <image>
-                <Image url="@images/error.png"/>
+                <Image url="@../../images/error.png"/>
             </image>
         </ImageView>
         <ImageView fx:id="errorDois" fitHeight="18.0" fitWidth="13.0" layoutX="182.0" layoutY="136.0"
                    pickOnBounds="true" preserveRatio="true" visible="false">
             <image>
-                <Image url="@images/error.png"/>
+                <Image url="@../../images/error.png"/>
             </image>
         </ImageView>
         <ImageView fx:id="errorTres" fitHeight="18.0" fitWidth="13.0" layoutX="182.0" layoutY="180.0"
                    pickOnBounds="true" preserveRatio="true" visible="false">
             <image>
-                <Image url="@images/error.png"/>
+                <Image url="@../../images/error.png"/>
             </image>
         </ImageView>
         <Label layoutX="310.0" layoutY="161.0" style="-fx-font-size: 30px;" text="Criação de Conta" textFill="#be9b7b"/>

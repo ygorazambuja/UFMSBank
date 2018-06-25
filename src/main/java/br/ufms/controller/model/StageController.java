@@ -1,4 +1,4 @@
-package br.ufms.controller;
+package br.ufms.controller.model;
 
 import javafx.event.Event;
 import javafx.fxml.FXMLLoader;
