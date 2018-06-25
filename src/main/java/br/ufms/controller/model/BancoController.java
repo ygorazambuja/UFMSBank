@@ -8,7 +8,6 @@ import java.util.List;
 
 public class BancoController {
 
-
     public void adicionar(String nome) {
         Banco banco = new Banco();
         banco.setNome(nome);
@@ -18,7 +17,6 @@ public class BancoController {
             e.printStackTrace();
         }
     }
-
     public void remover(String nome, String id) {
         if (!nome.equals("") || !id.equals("")) {
             Banco banco = new BancoDAO().getPorId(Banco.class, Integer.parseInt(id));
@@ -31,6 +29,4 @@ public class BancoController {
             throw new IllegalArgumentException("Invalido");
         }
     }
-
-
 }

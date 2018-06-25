@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -41,8 +42,22 @@ public class JanelaLoginController implements Initializable {
         btnConfirma.addEventHandler(ActionEvent.ACTION, event -> {
             try {
                 ContaBancaria contaBancaria = new ContaBancariaDAO().getPorNome(loginTextField.getText());
+                if (contaBancaria != null) {
+                    if (senhaTextField.getText().equals(contaBancaria.getSenha())) {
+                        System.out.println(contaBancaria.getCorrentista());
+                        new StageController().chamarStageContaBancaria(contaBancaria, event);
+                    } else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Erro");
+                        alert.showAndWait();
+                    }
+                } else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.showAndWait();
+                }
             } catch (NullPointerException np) {
                 System.out.println("deeeeeeeeeeeeeeu pau");
+                np.printStackTrace();
             }
         });
         btnCriarConta.addEventHandler(ActionEvent.ACTION, event -> {

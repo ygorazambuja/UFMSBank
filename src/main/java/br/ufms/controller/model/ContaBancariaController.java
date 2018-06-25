@@ -14,7 +14,6 @@ public class ContaBancariaController {
             e.printStackTrace();
         }
     }
-
     public void criarContaPoupanca(ContaPoupanca contaPoupanca) {
         try {
             new ContaPoupancaDAO().salvar(ContaPoupanca.class, contaPoupanca);
@@ -22,5 +21,4 @@ public class ContaBancariaController {
             e.printStackTrace();
         }
     }
-
 }
