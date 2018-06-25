@@ -4,16 +4,17 @@ import br.ufms.model.dao.EntidadeBase;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Set;
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Banco.getAll", query = "SELECT  b from Banco  b")
+})
 public class Banco implements EntidadeBase {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Integer id;
+    private Integer id;
 
     private String nome;
 
@@ -38,7 +39,6 @@ public class Banco implements EntidadeBase {
         }
     }
 
-
     public Set<Agencia> getAgencias() {
         return agencias;
     }
@@ -51,4 +51,5 @@ public class Banco implements EntidadeBase {
     public void setId(Integer id) {
         this.id = id;
     }
+
 }

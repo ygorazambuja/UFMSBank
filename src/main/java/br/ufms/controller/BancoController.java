@@ -3,11 +3,13 @@ package br.ufms.controller;
 import br.ufms.model.bean.Banco;
 import br.ufms.model.dao.BancoDAO;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class BancoController {
 
 
     public void adicionar(String nome) {
-
         Banco banco = new Banco();
         banco.setNome(nome);
         try {
@@ -18,7 +20,6 @@ public class BancoController {
     }
 
     public void remover(String nome, String id) {
-
         if (!nome.equals("") || !id.equals("")) {
             Banco banco = new BancoDAO().getPorId(Banco.class, Integer.parseInt(id));
             if (banco != null) {
@@ -26,9 +27,10 @@ public class BancoController {
             } else {
                 new BancoDAO().delete(Banco.class, banco);
             }
-            System.out.println("oi");
         } else {
             throw new IllegalArgumentException("Invalido");
         }
     }
+
+
 }

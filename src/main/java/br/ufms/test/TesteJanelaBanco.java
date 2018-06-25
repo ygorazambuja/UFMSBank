@@ -14,7 +14,7 @@ public class TesteJanelaBanco extends Application {
     }
 
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/JanelaBanco.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/fxml/JanelaBanco.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Nulo");
