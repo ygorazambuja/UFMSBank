@@ -33,7 +33,7 @@
                textFill="#854442" wrapText="true"/>
         <JFXProgressBar fx:id="progressBar" layoutX="12.0" layoutY="288.0" prefHeight="11.0" prefWidth="198.0"
                         visible="false"/>
-        <Label fx:id="label" layoutX="23.0" layoutY="308.0" text="Conta Criada com Sucesso!" visible="false"/>
+        <Label fx:id="label" layoutX="22.0" layoutY="310.0" text="Conta Criada com Sucesso!" visible="false"/>
         <ImageView fx:id="errorHum" fitHeight="18.0" fitWidth="13.0" layoutX="182.0" layoutY="89.0" pickOnBounds="true"
                    preserveRatio="true" visible="false">
             <image>
@@ -73,7 +73,7 @@
                             prefWidth="100.0" style="-fx-background-color: #fff4e6;"
                             SplitPane.resizableWithParent="false">
                     <children>
-                        <JFXComboBox layoutX="113.0" layoutY="51.0"/>
+                        <JFXComboBox fx:id="comboBox" layoutX="113.0" layoutY="51.0"/>
                         <Label layoutX="14.0" layoutY="53.0" style="-fx-font-size: 18px;" text="Categoria"/>
                         <Label layoutX="8.0" layoutY="14.0" opacity="0.34" prefHeight="25.0" prefWidth="171.0"
                                style="-fx-font-size: 20px;" text="Conta Poupança"/>
@@ -83,5 +83,7 @@
                 </AnchorPane>
             </items>
         </SplitPane>
+        <JFXButton fx:id="btnVoltar" buttonType="RAISED" layoutX="11.0" layoutY="14.0"
+                   style="-fx-background-color: #be9b7b;" text="Voltar"/>
     </children>
 </AnchorPane>

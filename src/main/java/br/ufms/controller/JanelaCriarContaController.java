@@ -1,6 +1,10 @@
 package br.ufms.controller;
 
+import br.ufms.model.bean.ContaCorrente;
+import br.ufms.model.bean.ContaPoupanca;
 import com.jfoenix.controls.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +26,7 @@ public class JanelaCriarContaController implements Initializable {
     @FXML
     private JFXPasswordField senhaTextField;
     @FXML
-    private JFXButton btnCriar;
+    private JFXButton btnCriarCorrente, btnCriarPoupanca, btnVoltar;
     @FXML
     private JFXProgressBar progressBar;
     @FXML
@@ -35,10 +39,13 @@ public class JanelaCriarContaController implements Initializable {
     private JFXCheckBox poupancaCheck;
     @FXML
     private AnchorPane anchorContaCorrente, anchorContaPoupanca;
+    @FXML
+    private JFXComboBox<Character> comboBox;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        popularComboBox();
         nomeUsuarioTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             nomeUsuarioTextField.setText(newValue.replaceAll("[^A-Za-z0-9]", "").toLowerCase());
             if (senhaTextField.getText().isEmpty()) {
@@ -48,13 +55,10 @@ public class JanelaCriarContaController implements Initializable {
         senhaTextField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 errorTres.setVisible(false);
-                btnCriar.setDisable(false);
             } else {
                 errorTres.setVisible(true);
-                btnCriar.setDisable(true);
             }
         });
-
         correnteCheck.focusedProperty().addListener(observable -> {
             poupancaCheck.setSelected(false);
             anchorContaCorrente.setDisable(false);
@@ -65,5 +69,31 @@ public class JanelaCriarContaController implements Initializable {
             anchorContaPoupanca.setDisable(false);
             anchorContaCorrente.setDisable(true);
         });
+        btnCriarCorrente.addEventHandler(ActionEvent.ACTION, event -> {
+            ContaCorrente contaCorrente = new ContaCorrente();
+            contaCorrente.setLimite(limiteSlider.getValue());
+            contaCorrente.setNomeUsuario(nomeUsuarioTextField.getText());
+            contaCorrente.setCorrentista(correntistaTextField.getText());
+            contaCorrente.setSenha(senhaTextField.getText());
+            new ContaBancariaController().criarContaCorrente(contaCorrente);
+            label.setVisible(true);
+        });
+        btnCriarPoupanca.addEventHandler(ActionEvent.ACTION, event -> {
+            ContaPoupanca contaPoupanca = new ContaPoupanca();
+            contaPoupanca.setCorrentista(correntistaTextField.getText());
+            contaPoupanca.setNomeUsuario(nomeUsuarioTextField.getText());
+            contaPoupanca.setSenha(senhaTextField.getText());
+            new ContaBancariaController().criarContaPoupanca(contaPoupanca);
+            label.setVisible(true);
+        });
+        btnVoltar.addEventHandler(ActionEvent.ACTION, event -> {
+            new StageController().chamarStage("view/fxml/TelaLogin.fxml", event);
+        });
     }
+
+    public void popularComboBox() {
+        ObservableList<Character> data = FXCollections.observableArrayList('A', 'B', 'C');
+        comboBox.setItems(data);
+    }
+
 }
