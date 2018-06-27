@@ -28,7 +28,7 @@ public class JanelaCriarContaController implements Initializable {
     @FXML
     private JFXPasswordField senhaTextField;
     @FXML
-    private JFXButton btnCriarCorrente, btnCriarPoupanca, btnVoltar;
+    private JFXButton btnCriarCorrente, btnCriarPoupanca, btnVoltar, btnBancoAgencia;
     @FXML
     private JFXProgressBar progressBar;
     @FXML
@@ -90,6 +90,9 @@ public class JanelaCriarContaController implements Initializable {
         });
         btnVoltar.addEventHandler(ActionEvent.ACTION, event -> {
             new StageController().chamarStage("view/fxml/TelaLogin.fxml", event);
+        });
+        btnBancoAgencia.addEventHandler(ActionEvent.ACTION, event -> {
+            new StageController().chamarStage("view/fxml/JanelaBancoAgencia.fxml", event);
         });
     }
 

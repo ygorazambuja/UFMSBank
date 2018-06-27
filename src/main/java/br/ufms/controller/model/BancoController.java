@@ -3,9 +3,6 @@ package br.ufms.controller.model;
 import br.ufms.model.bean.Banco;
 import br.ufms.model.dao.BancoDAO;
 
-import java.util.LinkedList;
-import java.util.List;
-
 public class BancoController {
 
     public void adicionar(String nome) {

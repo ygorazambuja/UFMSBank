@@ -44,7 +44,6 @@ public class JanelaLoginController implements Initializable {
                 ContaBancaria contaBancaria = new ContaBancariaDAO().getPorNome(loginTextField.getText());
                 if (contaBancaria != null) {
                     if (senhaTextField.getText().equals(contaBancaria.getSenha())) {
-                        System.out.println(contaBancaria.getCorrentista());
                         new StageController().chamarStageContaBancaria(contaBancaria, event);
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);

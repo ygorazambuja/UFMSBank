@@ -5,7 +5,6 @@ import br.ufms.model.bean.Banco;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class BancoDAO extends DAO<Banco> {

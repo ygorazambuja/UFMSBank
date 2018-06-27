@@ -1,12 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
-            prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="533.0"
+            prefWidth="601.0" xmlns="http://javafx.com/javafx/8.0.172" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="br.ufms.controller.views.JanelaContaBancaria">
     <children>
-        <Label fx:id="teste" layoutX="192.0" layoutY="150.0" style="-fx-font-size: 80px;" text="Label"/>
+        <SplitPane dividerPositions="0.6490939044481054" layoutY="-3.0" prefHeight="540.0" prefWidth="609.0">
+            <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="326.0"
+                            style="-fx-background-color: #e4dcf1;">
+                    <children>
+                        <JFXTextField fx:id="correntistaText" editable="false" focusColor="#3d2352" labelFloat="true"
+                                      layoutX="14.0" layoutY="168.0" prefHeight="36.0" prefWidth="263.0"
+                                      promptText="Correntista" unFocusColor="#3d2352">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="DEFAULT"/>
+                            </cursor>
+                        </JFXTextField>
+                        <Label layoutX="164.0" layoutY="217.0" style="-fx-font-size: 20px;" text="Saldo :"/>
+                        <Label fx:id="saldoLabel" layoutX="238.0" layoutY="215.0" style="-fx-font-size: 20px;"
+                               text="0,00"/>
+                        <SplitPane dividerPositions="0.5" layoutX="1.0" layoutY="243.0" prefHeight="293.0"
+                                   prefWidth="395.0">
+                            <items>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0"
+                                            style="-fx-background-color: #e4dcf1;">
+                                    <children>
+                                        <Label layoutX="14.0" layoutY="14.0" opacity="0.4" prefHeight="25.0"
+                                               prefWidth="167.0" style="-fx-alignment: center;" text="Conta Corrente"/>
+                                        <Label layoutX="14.0" layoutY="61.0" text="Limite :"/>
+                                    </children>
+                                </AnchorPane>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0"
+                                            style="-fx-background-color: #e4dcf1;">
+                                    <children>
+                                        <Label layoutX="14.0" layoutY="14.0" opacity="0.4" prefHeight="25.0"
+                                               prefWidth="167.0" style="-fx-alignment: center;" text="Conta Poupança"/>
+                                        <Label layoutX="14.0" layoutY="61.0" text="Categoria : "/>
+                                    </children>
+                                </AnchorPane>
+                            </items>
+                        </SplitPane>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="238.0" layoutY="6.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../../images/logo.png"/>
+                            </image>
+                        </ImageView>
+                        <Label layoutX="194.0" layoutY="121.0" prefHeight="25.0" prefWidth="167.0"
+                               style="-fx-font-size: 20px;" text="UFMS Bank" textFill="#2e003e"/>
+                        <Label layoutX="1.0" layoutY="14.0" style="-fx-font-size: 28px;" text="Painel do Usuário"
+                               textFill="#2e003e"/>
+                    </children>
+                </AnchorPane>
+                <BorderPane prefHeight="538.0" prefWidth="185.0">
+                    <center>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="538.0" prefWidth="133.0"
+                                    style="-fx-background-color: #e4dcf1;">
+                            <children>
+                                <JFXButton fx:id="saqueBtn" buttonType="RAISED" layoutX="133.0" layoutY="64.0"
+                                           text="Proximo"/>
+                                <JFXTextField fx:id="saqueTextField" layoutX="34.0" layoutY="64.0" prefHeight="28.0"
+                                              prefWidth="94.0" promptText="Saque"/>
+                                <JFXTextField fx:id="depositoTextField" layoutX="34.0" layoutY="124.0" prefHeight="28.0"
+                                              prefWidth="94.0" promptText="Deposito"/>
+                                <JFXButton fx:id="depositoBtn" buttonType="RAISED" layoutX="133.0" layoutY="124.0"
+                                           text="Próximo"/>
+                                <JFXButton fx:id="transfereBtn" buttonType="RAISED" layoutX="133.0" layoutY="185.0"
+                                           text="Próximo"/>
+                                <JFXTextField fx:id="transfereTextField" layoutX="34.0" layoutY="185.0"
+                                              prefHeight="28.0" prefWidth="94.0" promptText="Transferencia"/>
+                            </children>
+                        </AnchorPane>
+                    </center>
+                </BorderPane>
+            </items>
+        </SplitPane>
     </children>
 </AnchorPane>

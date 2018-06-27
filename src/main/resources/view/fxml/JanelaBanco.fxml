@@ -18,10 +18,10 @@
                    ripplerFill="#683c46" style="-fx-background-color: #E84A5F;" text="Adicionar"/>
         <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="153.0" layoutY="169.0" prefHeight="35.0"
                    prefWidth="81.0" style="-fx-background-color: #E84A5F;" text="Remover"/>
-        <JFXButton fx:id="agenciaBtn" layoutX="26.0" layoutY="284.0" prefHeight="35.0" prefWidth="81.0"
-                   style="-fx-background-color: FF847C;" text="Agencia"/>
-        <JFXButton fx:id="contasBtn" layoutX="153.0" layoutY="284.0" prefHeight="35.0" prefWidth="81.0"
-                   style="-fx-background-color: FF847C;" text="Contas"/>
+        <JFXButton fx:id="agenciaBtn" buttonType="RAISED" layoutX="26.0" layoutY="284.0" prefHeight="35.0"
+                   prefWidth="81.0" style="-fx-background-color: FF847C;" text="Agencia"/>
+        <JFXButton fx:id="contasBtn" buttonType="RAISED" layoutX="153.0" layoutY="284.0" prefHeight="35.0"
+                   prefWidth="81.0" style="-fx-background-color: FF847C;" text="Contas"/>
         <TableView fx:id="bancoTableView" layoutX="255.0" layoutY="15.0" prefHeight="375.0" prefWidth="221.0"
                    style="-fx-background-color: #FECEAB;">
             <columns>

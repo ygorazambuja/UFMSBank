@@ -12,6 +12,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="600.0" style="-fx-background-color: #fff4e6;" xmlns="http://javafx.com/javafx/8.0.172"
@@ -29,8 +30,6 @@
                 <Image url="@../../images/logo.png"/>
             </image>
         </ImageView>
-        <Label contentDisplay="TOP" layoutX="243.0" layoutY="127.0" style="-fx-font-size: 35px;" text="UFMS Bank"
-               textFill="#854442" wrapText="true"/>
         <JFXProgressBar fx:id="progressBar" layoutX="12.0" layoutY="288.0" prefHeight="11.0" prefWidth="198.0"
                         visible="false"/>
         <Label fx:id="label" layoutX="22.0" layoutY="310.0" text="Conta Criada com Sucesso!" visible="false"/>
@@ -52,6 +51,8 @@
                 <Image url="@../../images/error.png"/>
             </image>
         </ImageView>
+        <Label contentDisplay="TOP" layoutX="243.0" layoutY="127.0" style="-fx-font-size: 35px;" text="UFMS Bank"
+               textFill="#854442" wrapText="true"/>
         <Label layoutX="310.0" layoutY="161.0" style="-fx-font-size: 30px;" text="Criação de Conta" textFill="#be9b7b"/>
         <JFXCheckBox fx:id="correnteCheck" layoutX="23.0" layoutY="218.0" text="Corrente"/>
         <JFXCheckBox fx:id="poupancaCheck" layoutX="119.0" layoutY="218.0" text="Poupança"/>
@@ -85,5 +86,11 @@
         </SplitPane>
         <JFXButton fx:id="btnVoltar" buttonType="RAISED" layoutX="11.0" layoutY="14.0"
                    style="-fx-background-color: #be9b7b;" text="Voltar"/>
+        <JFXButton fx:id="btnBancoAgencia" buttonType="RAISED" layoutX="20.0" layoutY="249.0" prefHeight="28.0"
+                   prefWidth="179.0" style="-fx-background-color: #be9b7b;" text="Escolher Banco e Agencia">
+            <font>
+                <Font size="12.0"/>
+            </font>
+        </JFXButton>
     </children>
 </AnchorPane>

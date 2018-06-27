@@ -81,6 +81,15 @@ public class JanelaBancoController implements Initializable {
             codTextField.setText(String.valueOf(banco.getId()));
             nomeTextField.setText(banco.getNome());
         });
+
+        agenciaBtn.addEventHandler(ActionEvent.ACTION, event -> {
+            Banco banco = new BancoDAO().getPorId(Banco.class, Integer.valueOf(codTextField.getText()));
+            System.out.println(banco.getNome() + " " + banco.getId());
+            banco.getAgencias().forEach(agencia -> {
+                System.out.println(agencia.getId());
+            });
+            // new StageController().chamarStageAgencia(banco, event);
+        });
     }
 
     private void popularTableView() {
@@ -93,5 +102,4 @@ public class JanelaBancoController implements Initializable {
         codTextField.setText("");
         nomeTextField.setText("");
     }
-
 }

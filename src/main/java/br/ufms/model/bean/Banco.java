@@ -18,7 +18,7 @@ public class Banco implements EntidadeBase {
 
     private String nome;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.ALL}, mappedBy = "id")
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "id")
     private Set<Agencia> agencias = new HashSet<>(0);
 
 
