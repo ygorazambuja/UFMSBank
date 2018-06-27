@@ -3,7 +3,6 @@ package br.ufms.model.bean;
 
 import br.ufms.model.dao.EntidadeBase;
 import com.sun.istack.internal.NotNull;
-import com.sun.istack.internal.Nullable;
 
 import javax.persistence.*;
 
@@ -16,6 +15,7 @@ public class ContaBancaria implements EntidadeBase {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer numero;
+
     private Double saldo;
     private String correntista;
 

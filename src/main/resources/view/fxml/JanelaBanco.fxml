@@ -1,33 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
             prefWidth="483.0" style="-fx-background-color: #99B898;" xmlns="http://javafx.com/javafx/8.0.172"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufms.controller.views.JanelaBancoController">
-    <children>
-        <JFXTextField fx:id="codTextField" alignment="CENTER" focusColor="#2a363b" layoutX="47.0" layoutY="47.0"
-                      promptText="Código" unFocusColor="#99b898"/>
-        <JFXTextField fx:id="nomeTextField" alignment="CENTER" focusColor="#2a363b" labelFloat="true" layoutX="47.0"
-                      layoutY="101.0" promptText="Nome do Banco:" unFocusColor="#99b898"/>
-        <JFXButton fx:id="addBtn" buttonType="RAISED" layoutX="26.0" layoutY="169.0" prefHeight="35.0" prefWidth="81.0"
-                   ripplerFill="#683c46" style="-fx-background-color: #E84A5F;" text="Adicionar"/>
-        <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="153.0" layoutY="169.0" prefHeight="35.0"
-                   prefWidth="81.0" style="-fx-background-color: #E84A5F;" text="Remover"/>
-        <JFXButton fx:id="agenciaBtn" buttonType="RAISED" layoutX="26.0" layoutY="284.0" prefHeight="35.0"
-                   prefWidth="81.0" style="-fx-background-color: FF847C;" text="Agencia"/>
-        <JFXButton fx:id="contasBtn" buttonType="RAISED" layoutX="153.0" layoutY="284.0" prefHeight="35.0"
-                   prefWidth="81.0" style="-fx-background-color: FF847C;" text="Contas"/>
-        <TableView fx:id="bancoTableView" layoutX="255.0" layoutY="15.0" prefHeight="375.0" prefWidth="221.0"
-                   style="-fx-background-color: #FECEAB;">
-            <columns>
-                <TableColumn fx:id="idColumn" prefWidth="54.0" style="-fx-background-color: FECEAB;" text="ID:"/>
-                <TableColumn fx:id="nomeColumn" prefWidth="187.0" style="-fx-background-color: FECEAB;" text="Nome"/>
-            </columns>
-        </TableView>
-    </children>
+    <JFXTextField fx:id="codTextField" alignment="CENTER" focusColor="#2a363b" layoutX="47.0" layoutY="47.0"
+                  promptText="Código" unFocusColor="#99b898"/>
+    <JFXTextField fx:id="nomeTextField" alignment="CENTER" focusColor="#2a363b" labelFloat="true" layoutX="47.0"
+                  layoutY="101.0" promptText="Nome do Banco:" unFocusColor="#99b898"/>
+    <JFXButton fx:id="addBtn" buttonType="RAISED" layoutX="26.0" layoutY="169.0" prefHeight="35.0" prefWidth="81.0"
+               ripplerFill="#683c46" style="-fx-background-color: #E84A5F;" text="Adicionar"/>
+    <JFXButton fx:id="deleteBtn" buttonType="RAISED" layoutX="153.0" layoutY="169.0" prefHeight="35.0"
+               prefWidth="81.0" style="-fx-background-color: #E84A5F;" text="Remover"/>
+    <JFXButton fx:id="agenciaBtn" buttonType="RAISED" layoutX="26.0" layoutY="284.0" prefHeight="35.0"
+               prefWidth="81.0" style="-fx-background-color: FF847C;" text="Agencia"/>
+    <JFXButton fx:id="contasBtn" buttonType="RAISED" layoutX="153.0" layoutY="284.0" prefHeight="35.0"
+               prefWidth="81.0" style="-fx-background-color: FF847C;" text="Contas"/>
+    <TableView fx:id="bancoTableView" layoutX="255.0" layoutY="15.0" prefHeight="375.0" prefWidth="221.0"
+               style="-fx-background-color: #FECEAB;">
+        <columns>
+            <TableColumn fx:id="idColumn" prefWidth="54.0" style="-fx-background-color: FECEAB;" text="ID:"/>
+            <TableColumn fx:id="nomeColumn" prefWidth="187.0" style="-fx-background-color: FECEAB;" text="Nome"/>
+        </columns>
+    </TableView>
 </AnchorPane>

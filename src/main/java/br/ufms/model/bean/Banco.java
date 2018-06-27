@@ -13,9 +13,12 @@ import java.util.Set;
 public class Banco implements EntidadeBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
+    @Column(name = "nome", nullable = false, unique = true)
     private String nome;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "id")

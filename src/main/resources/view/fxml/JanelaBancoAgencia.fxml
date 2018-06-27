@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #8b9dc3;"
+            xmlns="http://javafx.com/javafx/8.0.172"
+            fx:controller="br.ufms.controller.views.JanelaBancoAgenciaController">
+    <children>
+        <TableView fx:id="bancoTable" layoutX="14.0" layoutY="60.0" prefHeight="332.0" prefWidth="226.0">
+            <columns>
+                <TableColumn fx:id="bancoIdColumn" editable="false" prefWidth="29.0" text="ID:"/>
+                <TableColumn fx:id="bancoNomeColumn" editable="false" prefWidth="196.0" text="Nome:"/>
+            </columns>
+        </TableView>
+        <TableView fx:id="agenciaTable" layoutX="291.0" layoutY="60.0" prefHeight="332.0" prefWidth="68.0">
+            <columns>
+                <TableColumn fx:id="agenciaIdColumn" prefWidth="67.0" text="ID"/>
+            </columns>
+        </TableView>
+        <Label layoutX="70.0" layoutY="22.0" style="-fx-font-size: 30px;" text="Bancos" textFill="#3b5998">
+            <effect>
+                <Lighting>
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+        </Label>
+        <Label layoutX="267.0" layoutY="22.0" style="-fx-font-size: 30px;" text="Agência" textFill="#3b5998">
+            <effect>
+                <Lighting>
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+        </Label>
+        <JFXButton fx:id="btnCriar" buttonType="RAISED" layoutX="363.0" layoutY="273.0" prefHeight="28.0"
+                   prefWidth="218.0" style="-fx-background-color: #f7f7f7;" text="Criar a Conta nessa Agência?"/>
+        <Label layoutX="368.0" layoutY="182.0" text="Nome:"/>
+        <Label layoutX="368.0" layoutY="222.0" text="Agencia ID:"/>
+        <Label fx:id="bancoIdLabel" layoutX="435.0" layoutY="140.0" prefHeight="18.0" prefWidth="43.0"
+               style="-fx-font-size: 20px;"/>
+        <Label fx:id="bancoNomeLabel" layoutX="413.0" layoutY="176.0" prefHeight="25.0" prefWidth="182.0"
+               style="-fx-font-size: 20px;"/>
+        <Label fx:id="agenciaIdLabel" layoutX="446.0" layoutY="214.0" prefHeight="25.0" prefWidth="26.0"
+               style="-fx-font-size: 20px;"/>
+        <Label layoutX="368.0" layoutY="145.0" text="Banco ID:"/>
+        <ImageView fitHeight="100.0" fitWidth="75.0" layoutX="506.0" layoutY="14.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../../images/logo.png"/>
+            </image>
+        </ImageView>
+        <Label layoutX="467.0" layoutY="71.0" text="UFMS Bank" textFill="#3b5998">
+            <effect>
+                <Lighting>
+                    <bumpInput>
+                        <Shadow/>
+                    </bumpInput>
+                    <light>
+                        <Light.Distant/>
+                    </light>
+                </Lighting>
+            </effect>
+        </Label>
+        <Label layoutX="383.0" layoutY="89.0" text="Escolhendo Banco e Agencia" textFill="#f7f7f7">
+            <effect>
+                <InnerShadow/>
+            </effect>
+        </Label>
+        <JFXButton fx:id="btnVoltar" layoutX="441.0" layoutY="334.0" text="Voltar?"/>
+    </children>
+</AnchorPane>
