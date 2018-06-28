@@ -36,5 +36,18 @@ public class BancoDAO extends DAO<Banco> {
         return bancos;
     }
 
+    public Banco get(Integer id) {
+        Banco banco;
+        List<Banco> bancos;
+        EntityManager entityManager = getEM();
+        Query query = entityManager.createNamedQuery("Banco.getPorId").setParameter("parameter", id);
+        bancos = query.getResultList();
+        if (bancos == null || bancos.isEmpty()) {
+            return null;
+        }
+
+        return bancos.get(0);
+    }
+
 
 }

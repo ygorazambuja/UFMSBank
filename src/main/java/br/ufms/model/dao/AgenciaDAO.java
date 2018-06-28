@@ -23,4 +23,24 @@ public class AgenciaDAO extends DAO<Agencia> {
         return agencias;
     }
 
+    public void salvar(Agencia agencia, Integer id) {
+        EntityManager entityManager = getEM();
+        try {
+            entityManager.getTransaction().begin();
+            Banco banco = entityManager.getReference(Banco.class, id);
+            agencia.setBanco(banco);
+            agencia.setId(null);
+            entityManager.persist(agencia);
+            entityManager.merge(banco);
+            entityManager.getTransaction().commit();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        } finally {
+            entityManager.close();
+        }
+
+    }
+
 }

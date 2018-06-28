@@ -13,7 +13,7 @@ import javax.persistence.*;
 public class ContaBancaria implements EntidadeBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer numero;
 
     private Double saldo;

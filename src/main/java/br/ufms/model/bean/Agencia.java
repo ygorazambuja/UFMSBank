@@ -1,6 +1,7 @@
 package br.ufms.model.bean;
 
 import br.ufms.model.dao.EntidadeBase;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,20 +14,25 @@ import java.util.Set;
 public class Agencia implements EntidadeBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id", unique = true, nullable = false)
+    @GenericGenerator(
+            name = "native",
+            strategy = "native"
+    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
+    @Column(name = "id", nullable = false)
+
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "Banco", nullable = false)
     private Banco banco;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE}, mappedBy = "numero")
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE}, mappedBy = "numero", targetEntity = ContaBancaria.class)
     private Set<ContaBancaria> contaBancarias = new HashSet<>(0);
 
+
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {

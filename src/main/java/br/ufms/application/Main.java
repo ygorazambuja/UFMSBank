@@ -9,14 +9,10 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        Banco banco = new Banco();
-        banco.setNome("");
-        new BancoDAO().salvar(Banco.class, banco);
-
-        Agencia agencia = new Agencia();
-        agencia.setBanco(new BancoDAO().getPorId(Banco.class, 2));
-        new AgenciaDAO().salvar(Agencia.class, agencia);
+        new BancoDAO().salvar(Banco.class, new Banco("UFMS Bank"));
+        for (int i = 0; i < 5; i++) {
+            new AgenciaDAO().salvar(new Agencia(), 2);
+        }
 
     }
-
 }

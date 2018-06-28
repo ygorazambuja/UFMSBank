@@ -17,7 +17,7 @@ public abstract class DAO<B extends EntidadeBase> {
         return emf.createEntityManager();
     }
 
-    public B salvar(Class<B> clazz, B bean) throws Exception {
+    public void salvar(Class<B> clazz, B bean) throws Exception {
        EntityManager em = getEM();
        try {
            em.getTransaction().begin();
@@ -29,7 +29,7 @@ public abstract class DAO<B extends EntidadeBase> {
                        throw new Exception("Erro!");
                    }
                }
-               bean = em.merge(bean);
+               em.merge(bean);
            }
            em.getTransaction().commit();
        } catch (PersistenceException pe) {
@@ -37,7 +37,6 @@ public abstract class DAO<B extends EntidadeBase> {
        } finally {
            em.close();
        }
-       return bean;
     }
 
     public void delete(Class<B> clazz, B bean) {
@@ -56,7 +55,7 @@ public abstract class DAO<B extends EntidadeBase> {
     }
     public B getPorId(Class<B> clazz, Integer id) {
         EntityManager em = getEM();
-        B b = null;
+        B b;
         try {
             b = em.find(clazz, id);
         } finally {
