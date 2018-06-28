@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity"
-            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff4e6;"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #fff4e6;"
             xmlns="http://javafx.com/javafx/8.0.172"
             fx:controller="br.ufms.controller.views.JanelaCriarContaController">
     <children>
@@ -85,5 +84,9 @@
                 <Font size="12.0"/>
             </font>
         </JFXButton>
+        <JFXTextField fx:id="bancoTextField" disable="true" editable="false" focusColor="#854442" labelFloat="true"
+                      layoutX="34.0" layoutY="294.0" promptText="Nome do Banco:" unFocusColor="#854442"/>
+        <JFXTextField fx:id="agenciaTextField" disable="true" editable="false" focusColor="#854442" labelFloat="true"
+                      layoutX="34.0" layoutY="336.0" promptText="Número Agência" unFocusColor="#854442"/>
     </children>
 </AnchorPane>

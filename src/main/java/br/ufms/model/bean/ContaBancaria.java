@@ -2,7 +2,7 @@
 package br.ufms.model.bean;
 
 import br.ufms.model.dao.EntidadeBase;
-import com.sun.istack.internal.NotNull;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
@@ -13,15 +13,20 @@ import javax.persistence.*;
 public class ContaBancaria implements EntidadeBase {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GenericGenerator(
+            name = "native",
+            strategy = "native"
+    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
     private Integer numero;
 
     private Double saldo;
+    @Column(nullable = false)
     private String correntista;
 
-
-    @NotNull
+    @Column(nullable = false)
     private String nomeUsuario;
+    @Column(nullable = false)
     private String senha;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)

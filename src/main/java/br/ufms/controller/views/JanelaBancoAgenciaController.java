@@ -74,7 +74,8 @@ public class JanelaBancoAgenciaController implements Initializable {
 
 
         btnCriar.addEventHandler(ActionEvent.ACTION, event -> {
-
+            new StageController().criarStageCriarConta(Integer.parseInt(bancoIdLabel.getText()),
+                    Integer.parseInt(agenciaIdLabel.getText()), event);
         });
 
         btnVoltar.addEventHandler(ActionEvent.ACTION, event -> new StageController().chamarStage("view/fxml/JanelaCriarConta.fxml", event));

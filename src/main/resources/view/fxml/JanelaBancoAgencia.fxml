@@ -7,8 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity"
-            prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #8b9dc3;"
+            minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #8b9dc3;"
             xmlns="http://javafx.com/javafx/8.0.172"
             fx:controller="br.ufms.controller.views.JanelaBancoAgenciaController">
     <TableView fx:id="bancoTable" layoutX="14.0" layoutY="60.0" prefHeight="332.0" prefWidth="226.0">
@@ -46,8 +45,8 @@
             </Lighting>
         </effect>
     </Label>
-    <JFXButton fx:id="btnCriar" buttonType="RAISED" layoutX="363.0" layoutY="273.0" prefHeight="28.0"
-               prefWidth="218.0" style="-fx-background-color: #f7f7f7;" text="Criar a Conta nessa Agência?"/>
+    <JFXButton fx:id="btnCriar" buttonType="RAISED" layoutX="368.0" layoutY="273.0" prefHeight="28.0" prefWidth="218.0"
+               style="-fx-background-color: #f7f7f7;" text="Criar a Conta nessa Agência?"/>
     <Label layoutX="368.0" layoutY="182.0" text="Nome:"/>
     <Label layoutX="368.0" layoutY="222.0" text="Agencia ID:"/>
     <Label fx:id="bancoIdLabel" layoutX="435.0" layoutY="140.0" prefHeight="18.0" prefWidth="43.0"
@@ -78,5 +77,16 @@
             <InnerShadow/>
         </effect>
     </Label>
-    <JFXButton fx:id="btnVoltar" layoutX="441.0" layoutY="334.0" text="Voltar?"/>
+    <JFXButton fx:id="btnVoltar" buttonType="RAISED" layoutX="441.0" layoutY="334.0" text="Voltar?">
+        <effect>
+            <Lighting>
+                <bumpInput>
+                    <Shadow/>
+                </bumpInput>
+                <light>
+                    <Light.Distant/>
+                </light>
+            </Lighting>
+        </effect>
+    </JFXButton>
 </AnchorPane>

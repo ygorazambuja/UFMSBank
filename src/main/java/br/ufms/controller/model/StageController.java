@@ -2,6 +2,8 @@ package br.ufms.controller.model;
 
 import br.ufms.controller.views.JanelaAgenciaController;
 import br.ufms.controller.views.JanelaContaBancaria;
+import br.ufms.controller.views.JanelaCriarAgenciaController;
+import br.ufms.controller.views.JanelaCriarContaController;
 import br.ufms.model.bean.Banco;
 import br.ufms.model.bean.ContaBancaria;
 import javafx.event.Event;
@@ -55,6 +57,41 @@ public class StageController {
             Scene scene = new Scene(root);
             JanelaAgenciaController janelaAgenciaController = loader.getController();
             janelaAgenciaController.setBanco(banco);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setResizable(true);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void chamarStageCriarAgencia(Integer id, Event event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Objects.requireNonNull(getClass().getResource("/view/fxml/JanelaCriarAgencias.fxml")));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            JanelaCriarAgenciaController jca = loader.getController();
+            jca.setParameters(id);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setResizable(true);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void criarStageCriarConta(Integer bancoId, Integer agenciaId, Event event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(Objects.requireNonNull(getClass().getResource("/view/fxml/JanelaCriarConta.fxml")));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            JanelaCriarContaController jcc = loader.getController();
+            jcc.setParameter(bancoId, agenciaId);
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setResizable(true);
             stage.setScene(scene);

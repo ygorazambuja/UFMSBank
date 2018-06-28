@@ -2,8 +2,12 @@ package br.ufms.controller.views;
 
 import br.ufms.controller.model.ContaBancariaController;
 import br.ufms.controller.model.StageController;
+import br.ufms.model.bean.Agencia;
+import br.ufms.model.bean.Banco;
 import br.ufms.model.bean.ContaCorrente;
 import br.ufms.model.bean.ContaPoupanca;
+import br.ufms.model.dao.AgenciaDAO;
+import br.ufms.model.dao.BancoDAO;
 import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,6 +30,8 @@ public class JanelaCriarContaController implements Initializable {
     @FXML
     private JFXTextField nomeUsuarioTextField;
     @FXML
+    private JFXTextField bancoTextField, agenciaTextField;
+    @FXML
     private JFXPasswordField senhaTextField;
     @FXML
     private JFXButton btnCriarCorrente, btnCriarPoupanca, btnVoltar, btnBancoAgencia;
@@ -43,6 +49,10 @@ public class JanelaCriarContaController implements Initializable {
     private AnchorPane anchorContaCorrente, anchorContaPoupanca;
     @FXML
     private JFXComboBox<Character> comboBox;
+
+    private Banco banco;
+    private Agencia agencia;
+
 
 
     @Override
@@ -101,4 +111,12 @@ public class JanelaCriarContaController implements Initializable {
         comboBox.setItems(data);
     }
 
+
+    public void setParameter(Integer bancoId, Integer agenciaId) {
+        this.banco = new BancoDAO().get(bancoId);
+        this.agencia = new AgenciaDAO().getPorId(Agencia.class, agenciaId);
+
+        bancoTextField.setText(this.banco.getNome());
+        agenciaTextField.setText(String.valueOf(this.agencia.getId()));
+    }
 }
