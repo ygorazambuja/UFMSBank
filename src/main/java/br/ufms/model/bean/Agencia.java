@@ -13,6 +13,7 @@ import java.util.Set;
 })
 public class Agencia implements EntidadeBase {
 
+
     @Id
     @GenericGenerator(
             name = "native",
@@ -20,14 +21,14 @@ public class Agencia implements EntidadeBase {
     )
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
     @Column(name = "id", nullable = false)
-
     private Integer id;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinColumn(name = "Banco", nullable = false)
     private Banco banco;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE}, mappedBy = "numero", targetEntity = ContaBancaria.class)
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL}, mappedBy = "numero",
+            targetEntity = ContaBancaria.class)
     private Set<ContaBancaria> contaBancarias = new HashSet<>(0);
 
 

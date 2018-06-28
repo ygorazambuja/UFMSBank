@@ -1,6 +1,5 @@
 package br.ufms.controller.views;
 
-import br.ufms.controller.model.ContaBancariaController;
 import br.ufms.controller.model.StageController;
 import br.ufms.model.bean.Agencia;
 import br.ufms.model.bean.Banco;
@@ -8,6 +7,7 @@ import br.ufms.model.bean.ContaCorrente;
 import br.ufms.model.bean.ContaPoupanca;
 import br.ufms.model.dao.AgenciaDAO;
 import br.ufms.model.dao.BancoDAO;
+import br.ufms.model.dao.ContaBancariaDAO;
 import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -87,7 +87,8 @@ public class JanelaCriarContaController implements Initializable {
             contaCorrente.setNomeUsuario(nomeUsuarioTextField.getText());
             contaCorrente.setCorrentista(correntistaTextField.getText());
             contaCorrente.setSenha(senhaTextField.getText());
-            new ContaBancariaController().criarContaCorrente(contaCorrente);
+            contaCorrente.setAgencia(this.agencia);
+            new ContaBancariaDAO().salvar(contaCorrente, this.agencia.getId());
             label.setVisible(true);
         });
         btnCriarPoupanca.addEventHandler(ActionEvent.ACTION, event -> {
@@ -95,7 +96,7 @@ public class JanelaCriarContaController implements Initializable {
             contaPoupanca.setCorrentista(correntistaTextField.getText());
             contaPoupanca.setNomeUsuario(nomeUsuarioTextField.getText());
             contaPoupanca.setSenha(senhaTextField.getText());
-            new ContaBancariaController().criarContaPoupanca(contaPoupanca);
+            contaPoupanca.setAgencia(this.agencia);
             label.setVisible(true);
         });
         btnVoltar.addEventHandler(ActionEvent.ACTION, event -> {
@@ -115,7 +116,6 @@ public class JanelaCriarContaController implements Initializable {
     public void setParameter(Integer bancoId, Integer agenciaId) {
         this.banco = new BancoDAO().get(bancoId);
         this.agencia = new AgenciaDAO().getPorId(Agencia.class, agenciaId);
-
         bancoTextField.setText(this.banco.getNome());
         agenciaTextField.setText(String.valueOf(this.agencia.getId()));
     }

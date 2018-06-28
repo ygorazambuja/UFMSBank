@@ -23,12 +23,12 @@ public class Banco implements EntidadeBase {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "nome", nullable = false, unique = true)
-    private String nome;
-
     @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.ALL},
             mappedBy = "banco", targetEntity = Agencia.class)
     private Set<Agencia> agencias = new HashSet<>(0);
+
+    @Column(name = "nome", nullable = false, unique = true)
+    private String nome;
 
 
     public Integer getId() {

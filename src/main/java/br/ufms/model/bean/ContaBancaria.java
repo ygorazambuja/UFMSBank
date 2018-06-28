@@ -18,7 +18,14 @@ public class ContaBancaria implements EntidadeBase {
             strategy = "native"
     )
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "native")
+    @Column(name = "numero", nullable = false)
     private Integer numero;
+
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "Agencia", nullable = false)
+    private Agencia agencia;
+
+
 
     private Double saldo;
     @Column(nullable = false)
@@ -29,9 +36,6 @@ public class ContaBancaria implements EntidadeBase {
     @Column(nullable = false)
     private String senha;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "Agencia", nullable = false)
-    private Agencia agencia;
 
 
     protected ContaBancaria() {
@@ -89,4 +93,6 @@ public class ContaBancaria implements EntidadeBase {
     public void setAgencia(Agencia agencia) {
         this.agencia = agencia;
     }
+
+
 }
