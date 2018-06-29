@@ -52,7 +52,6 @@ public class JanelaBancoController implements Initializable {
         nomeColumn.setCellValueFactory(new PropertyValueFactory<>("nome"));
         popularTableView();
 
-
         addBtn.addEventHandler(ActionEvent.ACTION, event -> {
             new Thread(() -> {
                 new BancoController().adicionar(nomeTextField.getText());
@@ -67,28 +66,16 @@ public class JanelaBancoController implements Initializable {
                 limpaDados();
             }).start();
         });
-
         agenciaBtn.addEventHandler(ActionEvent.ACTION, event -> {
             new StageController().chamarStageCriarAgencia(Integer.valueOf(codTextField.getText()), event);
         });
-
         contasBtn.addEventHandler(ActionEvent.ACTION, event -> {
             new StageController().chamarStage("view/fxml/JanelaContaBancaria.fxml", event);
         });
-
         bancoTableView.setOnMouseClicked(event -> {
             Banco banco = bancoTableView.getItems().get(bancoTableView.getSelectionModel().getSelectedIndex());
             codTextField.setText(String.valueOf(banco.getId()));
             nomeTextField.setText(banco.getNome());
-        });
-
-        agenciaBtn.addEventHandler(ActionEvent.ACTION, event -> {
-            Banco banco = new BancoDAO().getPorId(Banco.class, Integer.valueOf(codTextField.getText()));
-            System.out.println(banco.getNome() + " " + banco.getId());
-            banco.getAgencias().forEach(agencia -> {
-                System.out.println(agencia.getId());
-            });
-            // new StageController().chamarStageAgencia(banco, event);
         });
     }
 
