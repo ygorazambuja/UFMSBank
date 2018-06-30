@@ -22,11 +22,11 @@ public class StageController {
         try {
             Parent root = FXMLLoader.load((Objects.requireNonNull(getClass().getClassLoader().getResource(url))));
             Scene scene = new Scene(root);
-
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             stage.setResizable(true);
             stage.setScene(scene);
             stage.centerOnScreen();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

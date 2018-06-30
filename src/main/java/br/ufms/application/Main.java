@@ -20,5 +20,6 @@ public class Main extends Application {
         primaryStage.setTitle("UFMS - Bank");
         primaryStage.setResizable(false);
         primaryStage.show();
+
     }
 }
