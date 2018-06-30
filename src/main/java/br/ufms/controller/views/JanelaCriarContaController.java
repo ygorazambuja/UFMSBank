@@ -121,12 +121,10 @@ public class JanelaCriarContaController implements Initializable {
                 label.setVisible(true);
             } else {
                 alert = new Alert(Alert.AlertType.ERROR);
-
                 alert.setTitle("Não foi Possivel");
                 alert.setHeaderText("Ocorreu um erro!");
                 alert.setContentText("Verifique se não deixou algum campo vazio ... ");
                 alert.showAndWait();
-
             }
 
         });
